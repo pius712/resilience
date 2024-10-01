@@ -3,6 +3,7 @@ package com.pius.resilience.controller
 import com.pius.resilience.domains.circuitbreaker.CircuitBreakerService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -12,7 +13,9 @@ class CircuitBreakerController(
 ) {
 
     @GetMapping
-    fun test() :String {
-        return circuitBreakerService.test()
+    fun test(
+        @RequestParam("test") test: String
+    ) :String {
+        return circuitBreakerService.test(test)
     }
 }

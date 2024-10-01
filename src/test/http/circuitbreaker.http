@@ -1,3 +1,7 @@
-### test
-GET http://localhost:8080/circuitbreaker
+### 실패
+GET http://localhost:8080/circuitbreaker?test=test
+content-type: application/json
+
+### 성공
+GET http://localhost:8080/circuitbreaker?test=no
 content-type: application/json

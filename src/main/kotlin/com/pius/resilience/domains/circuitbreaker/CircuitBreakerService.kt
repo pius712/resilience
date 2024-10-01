@@ -5,12 +5,17 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
-class CircuitBreakerService {
+class CircuitBreakerService(
+) {
 
     private val logger = LoggerFactory.getLogger(javaClass)
-    @CircuitBreaker(name = "test", fallbackMethod = "fallback")
-    fun test(): String {
-        throw RuntimeException("test")
+    @CircuitBreaker(name = "test3", fallbackMethod = "fallback")
+    fun test(test:String): String {
+        logger.info("test method called")
+        if(test == "test") {
+            throw RuntimeException("test")
+        }
+        return "test"
     }
 
     fun fallback(e: Exception):String {
