@@ -9,7 +9,7 @@ class CircuitBreakerService(
 ) {
 
     private val logger = LoggerFactory.getLogger(javaClass)
-    @CircuitBreaker(name = "test3", fallbackMethod = "fallback")
+    @CircuitBreaker(name = "test", fallbackMethod = "fallback")
     fun test(test:String): String {
         logger.info("test method called")
         if(test == "test") {
